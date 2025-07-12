@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>通用视频下载工具</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('./bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+        }
+
+        .content {
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-right: 30px;
+        }
+
+        .title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .tutorial-btn {
+            background: #00a1d6;
+        }
+
+        .download-btn {
+            background: #4CAF50;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-home">← 返回主页</a>
+
+    <div class="content">
+        <div class="logo-section">
+            <img src="./logo.png" alt="工具Logo" class="logo">
+            <div>
+                <h1 class="title">通用网页视频下载工具</h1>
+                <p class="description">一个可以下载各大视频网站视频的下载工具</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="https://www.bilibili.com/video/BV1v9dSYLEB9/" class="btn tutorial-btn">查看介绍视频及使用教程</a>
+            <a href="./download.html" class="btn download-btn">下载软件</a>
+        </div>
+    </div>
+</body>
+</html>

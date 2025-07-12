@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爬虫测试站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+        }
+
+        /* 导航栏样式 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 120px;
+            height: 40px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA...') no-repeat;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 8px 12px;
+            border: 1px solid #e7e7e7;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            display: flex;
+            max-width: 1600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        /* 视频播放区域 */
+        .video-container {
+            flex: 3;
+            min-width: 0;
+        }
+
+        #bili-player {
+            width: 100%;
+            height: 500px;
+            background-color: #000;
+            border-radius: 6px;
+            aspect-ratio: 16/9;
+        }
+
+        /* 隐藏下载按钮 */
+        #bili-player::-webkit-media-controls-download-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+
+        #bili-player::-webkit-media-controls {
+            overflow: hidden !important;
+        }
+
+        /* 视频信息 */
+        .video-info {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .video-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #181919;
+        }
+
+        .video-stats {
+            color: #9499a0;
+            font-size: 14px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 操作按钮 */
+        .action-buttons {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            color: #60676d;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #e5e5e5;
+        }
+
+        /* 推荐侧边栏 */
+        .recommend-sidebar {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .recommend-item {
+            display: flex;
+            margin-bottom: 15px;
+            cursor: pointer;
+            background: #fff;
+            padding: 8px;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .recommend-item:hover {
+            transform: translateX(5px);
+        }
+
+        .recommend-thumbnail {
+            width: 160px;
+            height: 90px;
+            border-radius: 4px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .recommend-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #181919;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .recommend-author {
+            color: #9499a0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="nav">
+        <div class="logo"></div>
+        <input type="text" class="search-box" placeholder="搜索视频、番剧、up主...">
+        <div class="user-menu">
+            <a href="#" style="color: #00aeec;">登录</a>
+            <a href="#" style="margin-left: 15px;">注册</a>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <div class="main-content">
+        <!-- 视频主区域 -->
+        <div class="video-container">
+            <video id="bili-player" 
+                   controls 
+                   controlsList="nodownload nofullscreen" 
+                   disablePictureInPicture
+                   disableRemotePlayback>
+                <source src="./video.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+
+            <!-- 视频信息 -->
+            <div class="video-info">
+                <h1 class="video-title">视频爬取样本</h1>
+                <div class="video-stats">
+                    <span>▶ 10亿播放</span>
+                    <span>💬 5.5w弹幕</span>
+                    <span>📅1000-01-01</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn">👍 12.3万</button>
+                    <button class="action-btn">⭐ 8.5万</button>
+                    <button class="action-btn">📤 分享</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 推荐侧边栏 -->
+        <div class="recommend-sidebar">
+            <h3 style="margin-bottom: 15px;">推荐视频</h3>
+            <div class="recommend-item">
+                <img src="./1.jpg" class="recommend-thumbnail" alt="推荐视频">
+                <div>
+                    <div class="recommend-title">测试专用</div>
+                    <div class="recommend-author">SYSTEM-Intel-MIC</div>
+                </div>
+            </div>
+            <div class="recommend-item">
+                <img src="./2.png" class="recommend-thumbnail" alt="推荐视频">
+                <div>
+                    <div class="recommend-title">欢迎爬取该视频</div>
+                    <div class="recommend-author">SYSTEM-Intel-MIC</div>
+                </div>
+            </div>
+            <div class="recommend-item">
+                <img src="./3.png" class="recommend-thumbnail" alt="推荐视频">
+                <div>
+                    <div class="recommend-title">关注up主获得更多精彩资源</div>
+                    <div class="recommend-author">SYSTEM-Intel-MIC</div>
+                </div>
+            </div>  
+            <!-- 更多推荐项... -->
+        </div>
+    </div>
+</body>
+</html>
